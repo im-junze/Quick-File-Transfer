@@ -2,6 +2,7 @@ package org.example;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.ServerSocketChannel;
@@ -9,12 +10,13 @@ import java.nio.channels.SocketChannel;
 import java.nio.charset.StandardCharsets;
 
 public class ServerSocketChannelDemo {
-        static String dest = "/home/desk/";
-//    static String dest = "E://";
+//        static String dest = "/home/desk/";
+    static String dest = "E://";
 
     public static void main(String[] args) throws Exception {
         System.out.println("监听已经启动");
-
+        InetAddress local = InetAddress.getLocalHost();
+        System.out.println("your ip is "+local.getHostAddress());
         //端口号
         int port = 8888;
         //buffer
@@ -48,12 +50,13 @@ public class ServerSocketChannelDemo {
             }
 //            向client回复收到
             accept.write(ByteBuffer.wrap("OK".getBytes()));
-
+            buf = ByteBuffer.allocate(1024);
 //            写入数据
             FileOutputStream fos = new FileOutputStream(file);
             while ((len = accept.read(buf)) != -1) {
                 buf.flip();
                 fos.write(buf.array(), 0, len);
+                buf.clear();
             }
 
         }

@@ -1,6 +1,7 @@
 package org.example;
 
 import java.io.RandomAccessFile;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
@@ -13,9 +14,11 @@ public class SocketChannelDemo {
 //    static String name = "E:\\project\\3\\Quick-File-Transfer\\src\\main\\java\\org\\example\\test";
 
     public static void main(String[] args) throws Exception {
+        InetAddress local = InetAddress.getLocalHost();
+        System.out.println("your ip is "+local.getHostAddress());
         //创建SocketChannel
-//        SocketChannel socketChannel = SocketChannel.open(new InetSocketAddress("localhost", 8888));
-        SocketChannel socketChannel = SocketChannel.open(new InetSocketAddress("192.168.61.20", 8888));
+        SocketChannel socketChannel = SocketChannel.open(new InetSocketAddress("localhost", 8888));
+//        SocketChannel socketChannel = SocketChannel.open(new InetSocketAddress("192.168.61.20", 8888));
         //设置阻塞和非阻塞
         socketChannel.configureBlocking(false);
         //读操作
@@ -40,7 +43,7 @@ public class SocketChannelDemo {
             transferred += flag;
             int progress = (int) ((transferred * 100) / fileSize);
             System.out.print("\r传输进度: " + progress + "% (" + transferred + "/" + fileSize + " bytes)");
-            Thread.sleep(1000);
+//            Thread.sleep(1000);
         }
 
         socketChannel.close();
