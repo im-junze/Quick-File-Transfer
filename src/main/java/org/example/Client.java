@@ -4,13 +4,12 @@ import java.io.RandomAccessFile;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
-import java.nio.CharBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.channels.SocketChannel;
 
-public class SocketChannelDemo {
+public class Client {
     //    static   String name = "E:\\project\\3\\Quick-File-Transfer\\src\\main\\java\\org\\example\\openjdk-8u43-linux-x64.tar.gz";
-    static String name = "E:\\project\\3\\Quick-File-Transfer\\target\\Quick-File-Transfer-1.0-SNAPSHOT.jar";
+    static String name = "E:\\project\\3\\Quick-File-Transfer\\src\\main\\java\\org\\example\\a.txt";
 //    static String name = "E:\\project\\3\\Quick-File-Transfer\\src\\main\\java\\org\\example\\test";
 
     public static void main(String[] args) throws Exception {
