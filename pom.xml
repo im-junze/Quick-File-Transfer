@@ -44,7 +44,7 @@
                     <archive>
                         <manifest>
                             <!-- 指定主类，用于创建可执行 JAR -->
-                            <mainClass>org.example.Server</mainClass>
+                            <mainClass>org.example.Main</mainClass>
                             <!-- 添加项目依赖到 Class-Path -->
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>

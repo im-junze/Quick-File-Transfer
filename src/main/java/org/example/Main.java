@@ -1,3 +1,5 @@
+package org.example;
+
 import org.example.Client;
 import org.example.Server;
 import org.example.common.Config;
